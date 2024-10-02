@@ -13,9 +13,7 @@ def add_toc_at_top(file_path: str):
 
     nb.cells.insert(0, nbf.v4.new_markdown_cell("\\tableofcontents"))
 
-    if not path.exists("temp"):
-        mkdir("temp")
-    with open(f"temp/{file_path}", 'w', encoding="UTF-8") as f:
+    with open(file_path, 'w', encoding="UTF-8") as f:
         nbf.write(nb, f)
 
     print(f"Add toc at top of {sys.argv[1]} stored at temp/{file_path}")
